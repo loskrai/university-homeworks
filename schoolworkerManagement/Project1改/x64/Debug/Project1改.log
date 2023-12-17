@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\31202\source\repos\Project1改\Project1改\main.cpp(576,9): warning C4101: “d”: 未引用的局部变量
+C:\Users\31202\source\repos\Project1改\Project1改\main.cpp(339): warning C4715: “System::menu”: 不是所有的控件路径都返回值
+  Project1改.vcxproj -> C:\Users\31202\source\repos\Project1改\x64\Debug\Project1改.exe
