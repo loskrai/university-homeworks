@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="point.cpp" />
     <ClCompile Include="Rational.cpp" />
     <ClCompile Include="student.cpp" />
     <ClCompile Include="link_node.cpp" />

@@ -84,20 +84,20 @@ private:
 };
 
 
-int main() {
-	int down, up;
-	while (cin >> up >> down) {
-		Rational a(up, down);
-		cin >> up >> down;
-		Rational b(up, down);
-		Rational temp;
-		temp = a + b;
-		temp.display();
-		temp = a - b;
-		temp.display();
-		temp = a * b;
-		temp.display();
-		temp = a / b;
-		temp.display();
-	}
-}
+//int main() {
+//	int down, up;
+//	while (cin >> up >> down) {
+//		Rational a(up, down);
+//		cin >> up >> down;
+//		Rational b(up, down);
+//		Rational temp;
+//		temp = a + b;
+//		temp.display();
+//		temp = a - b;
+//		temp.display();
+//		temp = a * b;
+//		temp.display();
+//		temp = a / b;
+//		temp.display();
+//	}
+//}
