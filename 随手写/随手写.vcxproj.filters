@@ -30,6 +30,9 @@
     <ClCompile Include="point.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="2_3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="in.txt">
