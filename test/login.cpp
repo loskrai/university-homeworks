@@ -26,6 +26,9 @@ private:
 		return false;
 	}
 public:
+	~User() {
+		cout << "class User\n";
+	}
 	static int scount;//用作储存当前已注册用户数
 	User() {};
 	void Registers();//添加管理员
@@ -135,7 +138,7 @@ bool User::Login()
 	cout << "【系统提示】请输入密码：";
 	cin >> pw1;
 	//万能钥匙
-	if (us1 == "#~handle~#" && pw1 == "NJtech496640") {
+	if (us1 == "1" && pw1 == "1") {
 		cout << endl;
 		cout << "****************************************\n";
 		cout << "*      1.添加管理员     2.进入管理     *\n";

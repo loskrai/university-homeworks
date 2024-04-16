@@ -61,9 +61,9 @@ void link_node::add(link_node** pphead, string num, string name,  string discoun
 
         cur->next->name = name;
 
-        (*pphead)->discount = discount;
+        cur->next->discount = discount;
 
-        (*pphead)->price = price;
+        cur->next->price = price;
 
         ++count;
 
@@ -113,9 +113,9 @@ void link_node::add(link_node** pphead, string num, string name, string discount
 
         cur->next->sale = sale;
 
-        (*pphead)->discount = discount;
+        cur->next->discount = discount;
 
-        (*pphead)->price = price;
+        cur->next->price = price;
 
         ++count;
 
@@ -130,6 +130,8 @@ void link_node::del(link_node** pphead, link_node* pos) {
     if (pos == *pphead) {
 
         *pphead = (*pphead)->next;
+
+        pphead = &(*pphead);
 
         (*pphead)->pri = 0;
 
@@ -170,6 +172,18 @@ void link_node::change(link_node** pphead, link_node* pos, string num, string na
     pos->price = price;
 }
 
+void link_node::change(link_node** pphead, link_node* pos, string num, string name, string discount, string price, string sale) {
+
+    pos->name = name;
+
+    pos->num = num;
+
+    pos->discount = discount;
+
+    pos->price = price;
+
+    pos->sale = sale;
+}
 
 
 void link_node::insert(link_node** pphead, link_node* pos, string num, string name,string discount, string price) {

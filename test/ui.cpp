@@ -1,4 +1,6 @@
-ï»¿#include"UI.h"
+#include"UI.h"
+
+
 
 void Menu::read() {
 
@@ -158,11 +160,11 @@ int UI::log() const {
 
 	cout << "****************************************\n";
 
-	cout << "*è¯·é€‰æ‹©åºå·ç¡®å®šèº«ä»½                    *\n";
+	cout << "*ÇëÑ¡ÔñÐòºÅÈ·¶¨Éí·Ý                    *\n";
 
-	cout << "*   1.ç®¡ç†å‘˜                           *\n";
+	cout << "*   1.¹ÜÀíÔ±                           *\n";
 
-	cout << "*   2.é¡¾å®¢                             *\n";
+	cout << "*   2.¹Ë¿Í                             *\n";
 
 	cout << "****************************************\n";
 
@@ -172,7 +174,7 @@ int UI::log() const {
 
 	while (choice != 1 && choice != 2) {
 
-		cout << "è¯·é‡æ–°è¾“å…¥";
+		cout << "ÇëÖØÐÂÊäÈë";
 
 		cin >> choice;
 
@@ -212,25 +214,25 @@ void UI::userUI() {
 
 	cout << "****************************************\n";
 
-	cout << "*   1.æŸ¥æ‰¾è®¢å•                         *\n";
+	cout << "*   1.²éÕÒ¶©µ¥                         *\n";
 
-	cout << "*   2.ä¿®æ”¹è®¢å•                         *\n";
+	cout << "*   2.ÐÞ¸Ä¶©µ¥                         *\n";
 
-	cout << "*   3.åˆ é™¤è®¢å•                         *\n";
+	cout << "*   3.É¾³ý¶©µ¥                         *\n";
 
-	cout << "*   4.èœå“ä¿¡æ¯å¢žåŠ                      *\n";
+	cout << "*   4.²ËÆ·ÐÅÏ¢Ôö¼Ó                     *\n";
 
-	cout << "*   5.èœå“ä¿¡æ¯ä¿®æ”¹                     *\n";
+	cout << "*   5.²ËÆ·ÐÅÏ¢ÐÞ¸Ä                     *\n";
 
-	cout << "*   6.èœå“ä¿¡æ¯åˆ é™¤                     *\n";
+	cout << "*   6.²ËÆ·ÐÅÏ¢É¾³ý                     *\n";
 
-	cout << "*   7.èœå“ä¿¡æ¯æŸ¥æ‰¾                     *\n";
+	cout << "*   7.²ËÆ·ÐÅÏ¢²éÕÒ                     *\n";
 
-	cout << "*   8.é”€å”®æƒ…å†µç»Ÿè®¡(æ²¡è¦æ±‚åšï¼Œæœªå®Œæˆ)   *\n";
+	cout << "*   8.ÏúÊÛÇé¿öÍ³¼Æ(Ã»ÒªÇó×ö£¬Î´Íê³É)   *\n";
 
-	cout << "*   9.èœå•å±•ç¤º                         *\n";
+	cout << "*   9.²Ëµ¥Õ¹Ê¾                         *\n";
 
-	cout << "*   0.é€€å‡º                             *\n";
+	cout << "*   0.ÍË³ö                             *\n";
 
 	cout << "****************************************\n";
 
@@ -244,25 +246,25 @@ void UI::userUI() {
 
 		cur = 0;
 
-		cout << "è¯·è¾“å…¥é€‰æ‹©ï¼š";
+		cout << "ÇëÊäÈëÑ¡Ôñ£º";
 
 		cin >> choice;
 
 		switch (choice) {
 
-		case 1:cout << "è¯·è¾“å…¥ç¼–å·ï¼š"; cin >> t; cur = order.roll(t); cout << num << "\t" << cur->num << "\t" << cur->name << "\t" << cur->discount << "\t" << cur->price << "\t" << cur->sale << "\n"; break;
+		case 1:cout << "ÇëÊäÈë±àºÅ£º"; cin >> t; cur = order.roll(t); cout << num << "\t" << cur->num << "\t" << cur->name << "\t" << cur->discount << "\t" << cur->price << "\t" << cur->sale << "\n"; break;
 
-		case 2:cout << "è¯·è¾“å…¥ç¼–å·ï¼š"; cin >> t; cur = order.roll(t);  _itoa(t, a, 10); cout << "è¯·è¾“å…¥ä¿®æ”¹ä¿¡æ¯ï¼ˆåå­—ï¼ŒæŠ˜æ‰£ï¼Œä»·é’±, æ•°é‡ï¼‰\n "; cin >> name >> discount >> price >> sale; order.phead->change(order.pphead, cur, a, name, discount, price, sale); break;
+		case 2:cout << "ÇëÊäÈë±àºÅ£º"; cin >> t; cur = order.roll(t);  _itoa(t, a, 10); cout << "ÇëÊäÈëÐÞ¸ÄÐÅÏ¢£¨Ãû×Ö£¬ÕÛ¿Û£¬¼ÛÇ®, ÊýÁ¿£©\n "; cin >> name >> discount >> price >> sale; order.phead->change(order.pphead, cur, a, name, discount, price, sale); break;
 
-		case 3:cout << "è¯·è¾“å…¥ç¼–å·ï¼š"; cin >> t; cur = order.roll(t); if (cur) { order.phead->del(order.pphead, cur); } cout << "åˆ é™¤å®Œæˆï¼\n"; break;
+		case 3:cout << "ÇëÊäÈë±àºÅ£º"; cin >> t; cur = order.roll(t); if (cur) { order.phead->del(order.pphead, cur); } cout << "É¾³ýÍê³É£¡\n"; break;
 
-		case 4:_itoa(Menu::num, a, 10); Menu::num++; cout << "è¯·è¾“å…¥å¢žåŠ ä¿¡æ¯ï¼ˆåå­—ï¼ŒæŠ˜æ‰£ï¼Œä»·é’±ï¼‰\n "; cin >> name >> discount >> price; menu.phead->add(menu.pphead, a, name, discount, price); break;
+		case 4:_itoa(Menu::num, a, 10); Menu::num++; cout << "ÇëÊäÈëÔö¼ÓÐÅÏ¢£¨Ãû×Ö£¬ÕÛ¿Û£¬¼ÛÇ®£©\n "; cin >> name >> discount >> price; menu.phead->add(menu.pphead, a, name, discount, price); break;
 
-		case 5:cout << "è¯·è¾“å…¥ç¼–å·ï¼š"; cin >> num; cur = menu.phead->find(menu.phead, num); cout << "è¯·è¾“å…¥ä¿®æ”¹ä¿¡æ¯ï¼ˆåå­—ï¼ŒæŠ˜æ‰£ï¼Œä»·é’±ï¼‰\n "; cin >> name >> discount >> price; menu.phead->change(menu.pphead, cur, num, name, discount, price); break;
+		case 5:cout << "ÇëÊäÈë±àºÅ£º"; cin >> num; cur = menu.phead->find(menu.phead, num); cout << "ÇëÊäÈëÐÞ¸ÄÐÅÏ¢£¨Ãû×Ö£¬ÕÛ¿Û£¬¼ÛÇ®£©\n "; cin >> name >> discount >> price; menu.phead->change(menu.pphead, cur, num, name, discount, price); break;
 
-		case 6:cout << "è¯·è¾“å…¥ç¼–å·ï¼š"; cin >> num; cur = menu.phead->find(menu.phead, num); if (cur) { menu.phead->del(menu.pphead, cur); } cout << "åˆ é™¤å®Œæˆï¼\n"; break;
+		case 6:cout << "ÇëÊäÈë±àºÅ£º"; cin >> num; cur = menu.phead->find(menu.phead, num); if (cur) { menu.phead->del(menu.pphead, cur); } cout << "É¾³ýÍê³É£¡\n"; break;
 
-		case 7:cout << "è¯·è¾“å…¥ç¼–å·ï¼š"; cin >> num; cur = menu.phead->find(menu.phead, num); cout << cur->num << "\t" << cur->name << "\t" << cur->discount << "\t" << cur->price << "\t"; break;
+		case 7:cout << "ÇëÊäÈë±àºÅ£º"; cin >> num; cur = menu.phead->find(menu.phead, num); cout << cur->num << "\t" << cur->name << "\t" << cur->discount << "\t" << cur->price << "\t"; break;
 
 		case 8:break;
 
@@ -282,7 +284,7 @@ void UI::customerUI() {
 
 	cout << "*****************************************\n";
 
-	cout << "*è¯·è¾“å…¥è¦ç‚¹çš„èœå“ç¼–å·å’Œæ•°é‡ï¼ˆæŒ‰ä¸‹xç»“æŸï¼‰*\n";
+	cout << "*ÇëÊäÈëÒªµãµÄ²ËÆ·±àºÅºÍÊýÁ¿£¨°´ÏÂx½áÊø£©*\n";
 
 	cout << "*****************************************\n";
 
@@ -307,3 +309,4 @@ void UI::customerUI() {
 	}
 
 }
+

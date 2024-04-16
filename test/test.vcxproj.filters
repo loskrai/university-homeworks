@@ -24,6 +24,9 @@
     <ClCompile Include="login.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ui.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="in.txt">
@@ -38,6 +41,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="login.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ui.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

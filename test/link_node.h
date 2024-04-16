@@ -1,9 +1,11 @@
 #pragma once
 #include"headfile.h"
 
-class link_node {
 
+
+class link_node {
 public:
+
     string num;
 
     string name;
@@ -12,7 +14,7 @@ public:
 
     string discount;
 
-    string sale = 0;
+    string sale;
 
     static int count;
 
@@ -28,11 +30,13 @@ public:
 
     void add(link_node** pphead, string num, string name, string discount, string price);
 
-    void add(link_node** pphead, string num, string name, string discount, string price,string sale);
+    void add(link_node** pphead, string num, string name, string discount, string price, string sale);
 
     void del(link_node** pphead, link_node* pos);
 
     void change(link_node** pphead, link_node* pos, string num, string name, string discount, string price);
+
+    void change(link_node** pphead, link_node* pos, string num, string name, string discount, string price, string sale);
 
     void insert(link_node** pphead, link_node* pos, string num, string name, string discount, string price);
 
@@ -42,5 +46,5 @@ public:
 
     void destory(link_node** pphead);
 
-
 };
+
