@@ -11,14 +11,21 @@ public:
 	Menu() :phead(0), pphead(&phead) {}
 
 	~Menu() {
-
 		cout << "class Menu\n";
 
 	}
 
+	Menu operator +(Menu& b) {
+		link_node* a = b.phead;
+		while (a) {
+			phead->add(pphead, a->num, a->name, a->discount, a->price, a->sale);
+			a = a->next;
+		}
+	}
 	void read();
 
 	void save() const;
+
 
 	int static num;
 

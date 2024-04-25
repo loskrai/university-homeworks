@@ -238,33 +238,38 @@ void UI::userUI() {
 
 	int choice = 10;
 
-	int t;
+	int t,s;
 
 	char a[25];
 
 	while (choice != 0) {
 
 		cur = 0;
-
 		cout << "请输入选择：";
 
 		cin >> choice;
 
 		switch (choice) {
 
-		case 1:cout << "请输入编号："; cin >> t; cur = order.roll(t); cout << num << "\t" << cur->num << "\t" << cur->name << "\t" << cur->discount << "\t" << cur->price << "\t" << cur->sale << "\n"; break;
+		case 1:here1:cout << "请输入编号："; cin >> t; if (t > (Order::num - 1) || t <= 0) { cout << "\n不存在此编号\n1.重新输入\n2.结束查找"; int temp; cout << "\n请输入选择："; cin >> temp; if (temp == 1) { goto here1; } else { break; } }
+			  cur = order.roll(t); cout << num << "\t" << cur->num << "\t" << cur->name << "\t" << cur->discount << "\t" << cur->price << "\t" << cur->sale << "\n"; break;
 
-		case 2:cout << "请输入编号："; cin >> t; cur = order.roll(t);  _itoa(t, a, 10); cout << "请输入修改信息（名字，折扣，价钱, 数量）\n "; cin >> name >> discount >> price >> sale; order.phead->change(order.pphead, cur, a, name, discount, price, sale); break;
+		case 2:here2:cout << "请输入编号："; cin >> t; if (t > (Order::num - 1) || t <= 0) { cout << "\n不存在此编号\n1.重新输入\n2.结束修改"; int temp; cout << "\n请输入选择："; cin >> temp; if (temp == 1) { goto here2; } else { break; } }
+			  cur = order.roll(t);  _itoa(t, a, 10); cout << "请输入修改信息（名字，折扣，价钱, 数量）\n "; cin >> name >> discount >> price >> sale; order.phead->change(order.pphead, cur, a, name, discount, price, sale); order.save(); break;
 
-		case 3:cout << "请输入编号："; cin >> t; cur = order.roll(t); if (cur) { order.phead->del(order.pphead, cur); } cout << "删除完成！\n"; break;
+		case 3:here3:cout << "请输入编号："; cin >> t; if (t > (Order::num-1) || t <= 0) { cout << "\n不存在此编号\n1.重新输入\n2.结束删除"; int temp; cout << "\n请输入选择："; cin >> temp; if (temp == 1) { goto here3; } else { break; } }
+			  cur = order.roll(t); if (cur) { order.phead->del(order.pphead, cur); } cout << "删除完成！\n"; order.save(); break;
 
-		case 4:_itoa(Menu::num, a, 10); Menu::num++; cout << "请输入增加信息（名字，折扣，价钱）\n "; cin >> name >> discount >> price; menu.phead->add(menu.pphead, a, name, discount, price); break;
+		case 4:_itoa(Menu::num, a, 10); Menu::num++; cout << "请输入增加信息（名字，折扣，价钱）\n "; cin >> name >> discount >> price; menu.phead->add(menu.pphead, a, name, discount, price); menu.save(); break;
 
-		case 5:cout << "请输入编号："; cin >> num; cur = menu.phead->find(menu.phead, num); cout << "请输入修改信息（名字，折扣，价钱）\n "; cin >> name >> discount >> price; menu.phead->change(menu.pphead, cur, num, name, discount, price); break;
+		case 5:here5:cout << "请输入编号："; cin >> num; s = stoi(num); if (s > (Menu::num)-1 || s <=0) { cout << "\n不存在此编号\n1.重新输入\n2.结束修改"; int temp; cout << "\n请输入选择："; cin >> temp; if (temp == 1) { goto here5; } else { break; } }
+			cur = menu.phead->find(menu.phead, num); cout << "请输入修改信息（名字，折扣，价钱）\n "; cin >> name >> discount >> price; menu.phead->change(menu.pphead, cur, num, name, discount, price);  menu.save(); break;
 
-		case 6:cout << "请输入编号："; cin >> num; cur = menu.phead->find(menu.phead, num); if (cur) { menu.phead->del(menu.pphead, cur); } cout << "删除完成！\n"; break;
+		case 6:here6:cout << "请输入编号："; cin >> num;  s = stoi(num); if (s > (Menu::num)-1 || s <= 0) { cout << "\n不存在此编号\n1.重新输入\n2.结束删除"; int temp; cout << "\n请输入选择："; cin >> temp; if (temp == 1) { goto here6; } else { break; } }
+			  cur = menu.phead->find(menu.phead, num); if (cur) { menu.phead->del(menu.pphead, cur); } cout << "删除完成！\n"; menu.save(); break;
 
-		case 7:cout << "请输入编号："; cin >> num; cur = menu.phead->find(menu.phead, num); cout << cur->num << "\t" << cur->name << "\t" << cur->discount << "\t" << cur->price << "\t"; break;
+		case 7:here7:cout << "请输入编号："; cin >> num;  s = stoi(num); if (s > (Menu::num)-1 || s <= 0) { cout << "\n不存在此编号\n1.重新输入\n2.结束查找"; int temp; cout << "\n请输入选择："; cin >> temp; if (temp == 1) { goto here7; } else { break; } }
+			cur = menu.phead->find(menu.phead, num); cout << cur->num << "\t" << cur->name << "\t" << cur->discount << "\t" << cur->price << "\t"; break;
 
 		case 8:break;
 

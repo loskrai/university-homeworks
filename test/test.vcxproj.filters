@@ -27,11 +27,30 @@
     <ClCompile Include="ui.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Polynomial.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Complex.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Fraction.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="in.txt">
       <Filter>资源文件</Filter>
     </Text>
+    <Text Include="menu.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="order.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="time.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="user.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headfile.h">
@@ -44,6 +63,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ui.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Polynomial.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Complex.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Fraction.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

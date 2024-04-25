@@ -127,18 +127,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Complex.cpp" />
+    <ClCompile Include="Fraction.cpp" />
     <ClCompile Include="link_node.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="ui.cpp" />
+    <ClCompile Include="Polynomial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="in.txt" />
+    <Text Include="menu.txt" />
+    <Text Include="order.txt" />
+    <Text Include="time.txt" />
+    <Text Include="user.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Complex.h" />
+    <ClInclude Include="Fraction.h" />
     <ClInclude Include="headfile.h" />
     <ClInclude Include="link_node.h" />
     <ClInclude Include="login.h" />
+    <ClInclude Include="Polynomial.h" />
     <ClInclude Include="ui.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
