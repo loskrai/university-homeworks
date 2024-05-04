@@ -26,9 +26,7 @@ private:
 		return false;
 	}
 public:
-	~User() {
-		cout << "class User\n";
-	}
+	~User() {}
 	static int scount;//用作储存当前已注册用户数
 	User() {};
 	void Registers();//添加管理员

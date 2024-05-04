@@ -131,6 +131,7 @@
     <ClCompile Include="Fraction.cpp" />
     <ClCompile Include="link_node.cpp" />
     <ClCompile Include="login.cpp" />
+    <ClCompile Include="Point.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="ui.cpp" />
     <ClCompile Include="Polynomial.cpp" />
@@ -148,7 +149,10 @@
     <ClInclude Include="headfile.h" />
     <ClInclude Include="link_node.h" />
     <ClInclude Include="login.h" />
+    <ClInclude Include="Package.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="Polynomial.h" />
+    <ClInclude Include="Student.h" />
     <ClInclude Include="ui.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
