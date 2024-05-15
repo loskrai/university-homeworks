@@ -21,6 +21,38 @@ link_node* link_node::appSpace() {
 
 }
 
+TakeoutOrder* TakeoutOrder::appSpace() {
+
+    TakeoutOrder* newNode = new TakeoutOrder;
+
+    if (newNode == NULL) {
+
+        perror("Fail to apply new space");
+
+        exit(0);
+
+    }
+
+    return newNode;
+
+}
+
+CanteenOrder* CanteenOrder::appSpace() {
+
+    CanteenOrder* newNode = new CanteenOrder;
+
+    if (newNode == NULL) {
+
+        perror("Fail to apply new space");
+
+        exit(0);
+
+    }
+
+    return newNode;
+
+}
+
 
 
 void link_node::add(link_node** pphead, string num, string name,  string discount, string price) {
@@ -321,6 +353,290 @@ void link_node::destory(link_node** pphead) {
         delete* pphead;
 
         *pphead = next;
+
+    }
+}
+
+
+void TakeoutOrder::show(TakeoutOrder *phead) {
+
+    TakeoutOrder* cur = phead;
+
+        int icount = 1000;
+
+        cout << "number\tname\tprice\tdiscount\tamount\n";
+
+        while (cur) {
+
+            cout << icount << "\t" << cur->name << "\t" << cur->price << "\t" << cur->discount << "\t" << cur->amount << "\n";
+            cur = cur->next;
+
+            ++icount;
+
+        }
+        cout << "送餐时间：" << phead->sendTime << "\n";
+        cout << "送餐地点：" << phead->basho << "\n";
+        cout << "联系电话：" << phead->callNum << "\n";
+        cout << "外卖服务费：" << phead->sendCost << "\n";
+        cout << "总价：" << phead->getTotalPrice(phead) << "\n";
+
+        cout << "\n";
+
+}
+
+
+void CanteenOrder::show(CanteenOrder* phead) {
+
+    CanteenOrder* cur = phead;
+
+    int icount = 1000;
+
+    cout << "number\tname\tprice\tdiscount\tamount\n";
+
+    while (cur) {
+
+        cout << icount << "\t" << cur->name << "\t" << cur->price << "\t" << cur->discount << "\t" << cur->amount << "\n";
+        cur = cur->next;
+
+        ++icount;
+
+    }
+    cout << "是否有包厢" << (phead->doesBox ? "是" : "否") << endl;
+    cout << "包厢费用：" << phead->boxFee << "\n";
+    cout << "桌号：" << phead->tableNum << "\n";
+    cout << "总价：" << phead->getTotalPrice(phead) << "\n";
+
+    cout << "\n";
+
+}
+
+double CanteenOrder::getTotalPrice(CanteenOrder* phead) {
+    CanteenOrder* cur = phead;
+    double price = 0;
+    while (cur) {
+
+        price += (stod(cur->price) * cur->amount);
+
+        cur = cur->next;
+
+    }
+    price += phead->boxFee;
+    return price;
+}
+
+double TakeoutOrder::getTotalPrice(TakeoutOrder* phead) {
+    TakeoutOrder* cur = phead;
+    double price = 0;
+    while (cur) {
+
+        price += (stod(cur->price) * cur->amount);
+
+        cur = cur->next;
+
+    }
+    price += phead->sendCost;
+    return price;
+}
+
+void TakeoutOrder::save(TakeoutOrder *phead) {
+    SYSTEMTIME now;
+    GetLocalTime(&now);
+    string time =(to_string(now.wYear) + to_string(now.wMonth) + to_string(now.wDay)+".txt");
+    ofstream take(time, ios::app);
+    if (!take.is_open()) {
+        ofstream take(time);
+    }
+    TakeoutOrder* cur = phead;
+
+    int icount = 1000;
+
+    take << "number\tname\tprice\tdiscount\tamount\n";
+
+    while (cur) {
+        take << icount << "\t" << cur->name << "\t" << cur->price << "\t" <<cur->discount << "\t" << cur->amount << "\n";
+        cur = cur->next;
+        ++icount;
+    }
+    take << "送餐时间：" << phead->sendTime << "\n";
+    take << "送餐地点：" << phead->basho << "\n";
+    take << "联系电话：" << phead->callNum << "\n";
+    take << "外卖服务费：" << phead->sendCost << "\n";
+    take << "总价：" << phead->getTotalPrice(phead) << "\n";
+
+    take << "\n";
+    take.close();
+}
+
+void CanteenOrder::save(CanteenOrder* phead) {
+    SYSTEMTIME now;
+    GetLocalTime(&now);
+    string time = (to_string(now.wYear) + to_string(now.wMonth) + to_string(now.wDay) + ".txt");
+    ofstream take(time, ios::app);
+    if (!take.is_open()) {
+        ofstream take(time);
+    }
+    CanteenOrder* cur = phead;
+
+    int icount = 1;
+
+    take << "number\tname\tprice\tdiscount\tamount\n";
+
+    while (cur) {
+        take << cur->orderNum << "\t" << cur->name << "\t" << cur->price << "\t" << cur->discount << "\t" << cur->amount << "\n";
+        cur = cur->next;
+        ++icount;
+    }
+
+    take << "是否有包厢" << (phead->doesBox ? "是" : "否") << "\n";
+    take << "包厢费用：" << phead->boxFee << "\n";
+    take << "桌号：" << phead->tableNum << "\n";
+    take << "总价：" << phead->getTotalPrice(phead) << "\n";
+
+    take << "\n";
+    take.close();
+}
+
+
+void TakeoutOrder::add(TakeoutOrder** pphead, string num, string name, 
+    string discount, string price, string sale,string basho,unsigned callNum,double sendCost, string sendTime,int amount) {
+
+    TakeoutOrder* newNode = appSpace();
+
+    if ((*pphead) == NULL) {
+
+        (*pphead) = newNode;
+
+        (*pphead)->name = name;
+
+        (*pphead)->num = num;
+
+        (*pphead)->discount = discount;
+
+        (*pphead)->price = price;
+
+        (*pphead)->sale = sale;
+
+        (*pphead)->basho = basho;
+
+        (*pphead)->callNum = callNum;
+
+        (*pphead)->sendCost = sendCost;
+
+        (*pphead)->sendTime = sendTime;
+
+        (*pphead)->amount = amount;
+
+        (*pphead)->amount = amount;
+
+        (*pphead)->orderNum = TakeCount + 1000;
+
+        ++TakeCount;
+
+    }
+
+    else {
+
+        TakeoutOrder* cur = *pphead;
+
+        while (cur->next) {
+
+            cur = cur->next;
+
+        }
+
+        cur->next = newNode;
+
+        cur->next->pri = cur->next;
+
+        cur->next->num = num;
+
+        cur->next->name = name;
+
+        cur->next->sale = sale;
+
+        cur->next->discount = discount;
+
+        cur->next->price = price;
+
+        cur->basho = basho;
+
+        cur->callNum = callNum;
+
+        cur->sendCost = sendCost;
+
+        cur->sendTime = sendTime;
+
+        cur->amount = amount;
+
+    }
+
+}
+
+
+void CanteenOrder::add(CanteenOrder** pphead, string num, string name,
+    string discount, string price, string sale,double boxFee, bool doesBox, int tableNum, int amount) {
+
+    CanteenOrder* newNode = appSpace();
+
+    if ((*pphead) == NULL) {
+
+        (*pphead) = newNode;
+
+        (*pphead)->name = name;
+
+        (*pphead)->num = num;
+
+        (*pphead)->discount = discount;
+
+        (*pphead)->price = price;
+
+        (*pphead)->sale = sale;
+
+        (*pphead)->boxFee = boxFee;
+
+        (*pphead)->doesBox = doesBox;
+
+        (*pphead)->tableNum = tableNum;
+
+        (*pphead)->amount = amount;
+
+        (*pphead)->orderNum = CanteenCount + 5000;
+
+        ++CanteenCount;
+
+    }
+
+    else {
+
+        CanteenOrder* cur = *pphead;
+
+        while (cur->next) {
+
+            cur = cur->next;
+
+        }
+
+        cur->next = newNode;
+
+        cur->next->pri = cur->next;
+
+        cur->next->num = num;
+
+        cur->next->name = name;
+
+        cur->next->sale = sale;
+
+        cur->next->discount = discount;
+
+        cur->next->price = price;
+
+        cur->tableNum = tableNum;
+
+        cur->doesBox = doesBox;
+
+        cur->boxFee = boxFee;
+
+        cur->amount = amount;
 
     }
 

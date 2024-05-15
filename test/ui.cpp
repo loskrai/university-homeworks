@@ -1,7 +1,5 @@
 #include"UI.h"
 
-
-
 void Menu::read() {
 
 	string num, name, price, discount;
@@ -29,8 +27,6 @@ void Menu::read() {
 	infile.close();
 
 }
-
-
 
 void Menu::save() const {
 
@@ -68,8 +64,6 @@ void Menu::save() const {
 
 }
 
-
-
 void Order::read() {
 
 	string num, name, price, discount, sale;
@@ -97,8 +91,6 @@ void Order::read() {
 	infile.close();
 
 }
-
-
 
 void Order::save() const {
 
@@ -132,12 +124,6 @@ void Order::save() const {
 
 }
 
-
-
-
-
-
-
 link_node* Order::roll(const int num) const {
 
 	link_node* cur = phead;
@@ -151,8 +137,6 @@ link_node* Order::roll(const int num) const {
 	return cur;
 
 }
-
-
 
 int UI::log() const {
 
@@ -199,12 +183,6 @@ int UI::log() const {
 	return res;
 
 }
-
-
-
-
-
-
 
 void UI::userUI() {
 
@@ -281,37 +259,68 @@ void UI::userUI() {
 
 }
 
-
-
 void UI::customerUI() {
 
 	menu.phead->show(menu.phead);
-
+	cout << "*****************************************\n";
+	cout << "*请选择消费方式                         *\n";
+	cout << "*1.餐厅                                 *\n";
+	cout << "*2.外卖                                 *\n";
+	cout << "*0.退出                                 *\n";
 	cout << "*****************************************\n";
 
-	cout << "*请输入要点的菜品编号和数量（按下x结束）*\n";
+	int choice = 1;
 
-	cout << "*****************************************\n";
+	cout << "选择：";
+	cin >> choice;
 
-	string num, con;
+	while (choice != 0) {
+		while (choice != 1 && choice != 2) {
+			cout << "请重新输入：";
+			cin >> choice;
+		}
+		TakeoutOrder* Tphead=NULL, ** Tpphead = &Tphead;
+		CanteenOrder* Cphead=NULL, ** Cpphead = &Cphead;
 
-	link_node* cur;
-
-	while (cin >> num, num != "x") {
-
-		cin >> con;
-
-		cur = menu.phead->find(menu.phead, num);
-
-		char a[25];
-
-		_itoa(Order::num, a, 10);
-
-		order.phead->add(order.pphead, a, cur->name, cur->discount, cur->price, con);
-
-		Order::num++;
-
+		if (choice == 2) {
+			cout << "请输入送餐时间，送餐地点，手机号：\n";
+			string sendTime, basho;
+			unsigned int callNum;
+			cin >> sendTime >> basho >> callNum;
+			cout << "选择菜品编号和份数（操作提示：输入0 0结束\n";
+			string num = "";
+			int amount = 5;
+			cin >> num >> amount;
+			while (num != "0" && amount != 0) {
+				link_node* tem = menu.phead->find(menu.phead, num);
+				Tphead->add(Tpphead, tem->num, tem->name, tem->discount, tem->price, tem->sale, basho, callNum, 1.2, sendTime, amount);
+				cin >> num >> amount;
+			}
+			Tphead->show(Tphead);
+			Tphead->save(Tphead);
+		}
+		else {
+			cout << "请选择桌号：\n";
+			int tabNum;
+			cin >> tabNum;
+			cout << "是否包厢（1是，2否）\n";
+			bool doesbox = 0;
+			cin >> doesbox;
+			cout << "选择菜品编号和份数（操作提示：输入0 0结束\n";
+			string num = "";
+			int amount = 5;
+			cin >> num >> amount;
+			while (num != "0" && amount != 0) {
+				link_node* tem = menu.phead->find(menu.phead, num);
+				Cphead->add(Cpphead, tem->num, tem->name, tem->discount, tem->price, tem->sale, 100, doesbox, tabNum, amount);
+				cin >> num >> amount;
+			}
+			Cphead->show(Cphead);
+			Cphead->save(Cphead);
+		}
+		cout << "选择：";
+		cin >> choice;
 	}
-
+	
 }
 

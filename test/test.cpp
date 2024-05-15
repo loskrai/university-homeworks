@@ -13,6 +13,10 @@ int Order::num = 0;
 
 int Menu::num = 0;
 
+int CanteenOrder::CanteenCount = 1;
+
+int TakeoutOrder::TakeCount = 1;
+
 time_t gettm(const string& date) {
 	tm time = {};
 	istringstream tim(date);
@@ -23,7 +27,7 @@ time_t gettm(const string& date) {
 
 int main() {
 
-	/*UI ui;
+	UI ui;
 
 	ui.menu.read();
 
@@ -49,7 +53,8 @@ int main() {
 
 	ui.menu.save();
 
-	ui.order.save();*/
+	ui.order.save();
+
 	//rectangle a(1, 2, 3, 4);
 	//a.move(10, -5);
 	//cout << "(" << a.getX() << "," << a.getY() << ")" << "\n" << "width:" << a.getwidth() << "\n" << "length:" << a.getLength() << "\n" << "area:" << a.getArea() << "\n";
@@ -65,11 +70,11 @@ int main() {
 	//cout << a2.calculate_Cost() << "\n";
 	//cout << a3.calculate_Cost() << "\n";
 
-	string a = "2020/10/11 12:22:55";
-	string b = "2023/1/30 15:55:59";
-	time_t a1 = gettm(a);
-	time_t a2 = gettm(b);
-	cout << (a1 < a2);
+	//string a = "2020/10/11 12:22:55";
+	//string b = "2023/1/30 15:55:59";
+	//time_t a1 = gettm(a);
+	//time_t a2 = gettm(b);
+	//cout << (a1 < a2);
 
 	return 0;
 

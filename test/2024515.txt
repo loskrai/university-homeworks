@@ -1,0 +1,33 @@
+number	name	price	discount	amount
+1000	肉	100	0.5	1
+送餐时间：1
+送餐地点：1
+联系电话：1
+外卖服务费：1.2
+总价：101.2
+
+number	name	price	discount	amount
+1000	肉	100	0.5	1
+1001	肉	100	0.5	1
+1002	肉	100	0.5	0
+送餐时间：1
+送餐地点：1
+联系电话：1
+外卖服务费：1.2
+总价：201.2
+
+number	name	price	discount	amount
+5001	肉	100	0.5	1
+0	肉	100	0.5	0
+是否有包厢是
+包厢费用：100
+桌号：1
+总价：200
+
+number	name	price	discount	amount
+5001	肉	100	0.5	1
+是否有包厢是
+包厢费用：100
+桌号：1
+总价：200
+
